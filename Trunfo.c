@@ -218,13 +218,12 @@ int main(){
             printf("Digite o valor do segundo atributo: ");
             scanf("%f", &Atributo2);
             
-            if (Atributo1 == Atributo2)
+            if(Atributo1 == Atributo2){
                 printf("Empate!\n");
-            else
+            }else{
                 printf("%s Ganhou!\n", (escolha_atributo == 4) ? (Atributo1 < Atributo2 ? pais1 : pais2)
                                                                    : (Atributo1 > Atributo2 ? pais1 : pais2));
             }
-            break;
         case 3:
             printf("Obrigado por jogar!!!");
             break;
@@ -237,4 +236,4 @@ int main(){
 
     
     
-}
+}}
