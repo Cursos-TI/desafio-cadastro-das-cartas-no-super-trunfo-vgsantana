@@ -201,6 +201,7 @@ int main(){
             char pais1[50], pais2[50];
             int escolha_atributo;
             float Atributo1, Atributo2;
+
             
             printf("Qual o primeiro país? ");
             scanf("%49s", pais1);
@@ -209,6 +210,16 @@ int main(){
             scanf("%49s", pais2);
             
             printf("1 - Área\n2 - PIB\n3 - Pontos Turísticos\n4 - Densidade Populacional\n5 - PIB per capita\n");
+
+
+            printf("Qual o primeiro pais? ");
+            scanf("%49s", pais1);
+
+            printf("Qual o segundo pais? ");
+            scanf("%49s", pais2);
+
+            printf("1 - Area\n2 - Pib \n3 - Pontos Turisticos \n4 - Densidade Populacional \n5 - Pib per capita \n");
+
             printf("Escolha o atributo para comparar: ");
             scanf("%d", &escolha_atributo);
             
@@ -217,23 +228,29 @@ int main(){
             
             printf("Digite o valor do segundo atributo: ");
             scanf("%f", &Atributo2);
+
             
             if(Atributo1 == Atributo2){
                 printf("Empate!\n");
             }else{
                 printf("%s Ganhou!\n", (escolha_atributo == 4) ? (Atributo1 < Atributo2 ? pais1 : pais2)
                                                                    : (Atributo1 > Atributo2 ? pais1 : pais2));
+
+            if(Atributo1 == Atributo2){
+                printf("Empate");
+            }else{
+
+            }
+            printf("%s Ganhou!!!\n", escolha_atributo == 4 ? (Atributo1 < Atributo2 ?  pais1 :  pais2) 
+                : (Atributo1 > Atributo2 ? pais1 : pais2));
             }
         case 3:
             printf("Obrigado por jogar!!!");
+            printf("Obrigado por jogar");
             break;
         default:
             printf("Escolha uma opcao valida.\n\n");
             break;
         }
-    }
-    
-
-    
-    
+    }          
 }}
