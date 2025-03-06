@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <conio.h>
 
 //Struct com as infos da carta
 struct info_carta { 
@@ -128,7 +129,6 @@ int compararCartas(struct nome_carta nome1, struct nome_carta nome2){
     atributo = compararAtributos(nome1.carta.area, nome2.carta.area, &pontosCarta1, &pontosCarta2);
     atributoVencedor(nome1, nome2, atributo);
 
-
     printf("Pib: %.2f x %.2f\n", nome1.carta.pib, nome2.carta.pib);
     atributo = compararAtributos(nome1.carta.pib, nome2.carta.pib, &pontosCarta1, &pontosCarta2);
     atributoVencedor(nome1, nome2, atributo);
@@ -167,22 +167,74 @@ int compararCartas(struct nome_carta nome1, struct nome_carta nome2){
 
 int main(){
     struct nome_carta nome1, nome2;
-    printf("-------Jogo Super Trunfo!!!!!-------\n");
+    int opc;
 
-    printf("\n-Cadastrando a os dados da primeira carta-\n");
-    cadastraCarta(&nome1);
+    while(opc != 3){
+        printf("-------Jogo Super Trunfo!!!!!-------\n");
+        printf("1 - Jogo contra outro player\n");
+        printf("2 - Atributo VS Atributo\n");
+        printf("3 - Sair \n");
+        printf("Qual sera o modo de jogo? ");
+        scanf("%d", &opc);
 
-    printf("\n ---Exibindo dados da carta 1---\n");
-    exibirDados(nome1);
+        switch (opc)
+        {
+        case 1:
+            printf("\n-Cadastrando a os dados da primeira carta-\n");
+            cadastraCarta(&nome1);
 
-    printf("\n-Cadastrando a os dados da segunda carta-\n");
-    cadastraCarta(&nome2);
+            printf("\n ---Exibindo dados da carta 1---\n");
+            exibirDados(nome1);
 
-    printf("\n ---Exibindo dados da carta 2---\n");
-    exibirDados(nome2);
+            printf("\n-Cadastrando a os dados da segunda carta-\n");
+            cadastraCarta(&nome2);
 
-    printf("\n---Comparando cartas---\n");
+            printf("\n ---Exibindo dados da carta 2---\n");
+            exibirDados(nome2);
 
-    compararCartas(nome1, nome2);
+            printf("\n---Comparando cartas---\n");
+
+            compararCartas(nome1, nome2);
+            break;
+        case 2: // Compara dois atributos apenas
+            {
+            char pais1[50], pais2[50];
+            int escolha_atributo;
+            float Atributo1, Atributo2;
+            
+            printf("Qual o primeiro país? ");
+            scanf("%49s", pais1);
+            
+            printf("Qual o segundo país? ");
+            scanf("%49s", pais2);
+            
+            printf("1 - Área\n2 - PIB\n3 - Pontos Turísticos\n4 - Densidade Populacional\n5 - PIB per capita\n");
+            printf("Escolha o atributo para comparar: ");
+            scanf("%d", &escolha_atributo);
+            
+            printf("Digite o valor do primeiro atributo: ");
+            scanf("%f", &Atributo1);
+            
+            printf("Digite o valor do segundo atributo: ");
+            scanf("%f", &Atributo2);
+            
+            if (Atributo1 == Atributo2)
+                printf("Empate!\n");
+            else
+                printf("%s Ganhou!\n", (escolha_atributo == 4) ? (Atributo1 < Atributo2 ? pais1 : pais2)
+                                                                   : (Atributo1 > Atributo2 ? pais1 : pais2));
+            }
+            break;
+        case 3:
+            printf("Obrigado por jogar!!!");
+            break;
+        default:
+            printf("Escolha uma opcao valida.\n\n");
+            break;
+        }
+    }
+    
+
+    
     
 }
