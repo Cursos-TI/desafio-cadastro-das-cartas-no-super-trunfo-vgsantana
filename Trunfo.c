@@ -196,7 +196,24 @@ int main(){
 
             compararCartas(nome1, nome2);
             break;
-        case 2:
+        case 2: //Compara dois atributos apenas
+            {
+            int escolha_atributo;
+            float Atributo1, Atributo2;
+            printf("1 - Area\n2 - Pib \n3 - Pontos Turisticos \n4 - Densidade Populacional \n5 - Pib per capita \n");
+            printf("Escolha o atributo para comparar: ");
+            scanf("%d", &escolha_atributo);
+
+            printf("Digite o valor do primeiro atributo: ");
+            scanf("%f", &Atributo1);
+
+            printf("Digite o valor do segundo atributo: ");
+            scanf("%f", &Atributo2);
+
+            printf("%s\n", Atributo1 == Atributo2 ? "empate"
+                : escolha_atributo == 4 ? (Atributo1 < Atributo2 ? "Atributo 1 Ganhou" : "Atributo 2 Ganhou") 
+                : (Atributo1 > Atributo2 ? "Atributo 1 Ganhou" : "Atributo 2 Ganhou"));
+            }
             break;
         case 3:
             break;
